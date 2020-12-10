@@ -61,18 +61,20 @@ namespace Calcul
                     pos--;
                     i++;
                 }
-                //Exeptionn ex = new Exeptionn();
-                //try
-                //{
-                //    Console.WriteLine(new string(b));
-                //    ex.Age = new string(b);
-                //}
-                //catch (PersonException exep)
-                //{
-                //    Console.WriteLine(exep.Message);
-                //}
-                if (new string(b).Length > 8)
-                    Console.WriteLine("dsgfdsgds 8");
+                try
+                {
+                    if (new string(b).Length > 8)
+                    {
+                        throw new PersonException("Колличество байт > 8");
+                    }
+                }
+                catch (PersonException exep)
+                {
+                    Console.WriteLine(exep.Message);
+                    Console.WriteLine("Введите новое число");
+                    this.Name = Console.ReadLine();
+                    GetIntBinaryString(Name);
+                }
                 return new string(b);
             }
             else
@@ -92,17 +94,20 @@ namespace Calcul
                     pos--;
                     i++;
                 }
-                //Exeptionn ex = new Exeptionn();
-                //try
-                //{
-                //    ex.Age = new string(b);
-                //}
-                //catch(PersonException exep)
-                //{
-                //    Console.WriteLine(exep.Message);
-                //}
-                if (new string(b).Length > 8)
-                    Console.WriteLine("dfdsfdfs 8");
+                try
+                {
+                    if (new string(b).Length > 8)
+                    {
+                        throw new PersonException("Колличество байт > 8");
+                    }
+                }
+                catch (PersonException exep)
+                {
+                    Console.WriteLine(exep.Message);
+                    Console.WriteLine("Введите новое число");
+                    this.Name = Console.ReadLine();
+                    GetIntBinaryString(Name);
+                }
                 return new string(b);
             }
         }
@@ -115,8 +120,6 @@ namespace Calcul
                 if (Math.Pow(2, j) >= n)
                 {
                     znach = j;
-                    if (znach > 8)
-                        Console.WriteLine("Разряд больше 8");
                     break;
                 }
             }
